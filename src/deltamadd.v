@@ -38,7 +38,7 @@ module DMADD(
      		 
      		//Initialise
      		5'b1_0_0_00: begin i<= 4'b0; i_d<= 4'b1; i_e <= 4'b1111; end  	// Initialise MIN
-     		5'b1_0_0_01: begin i<= 4'b1111; i_d<= -3'b1; i_e <= 4'b0; end 	// Initialise MAX
+     		5'b1_0_0_01: begin i<= 4'b1111; i_d<= -1; i_e <= 4'b0; end 	// Initialise MAX
      		5'b1_0_1_00,
      		5'b1_0_1_01: mem[index]  <= 6'b1;					// Load Data MIN
      		5'b1_0_1_10: {mem[index], mem[index-1]} <= {mem[index] + {2'b0,data}, mem[index-1] - {2'b0,data}} ; //MADD
@@ -65,8 +65,8 @@ module DMADD(
 //	$display("%d r %d run %d load %d isn %d bad %d i_d %d i_e %d index %d data %d out_reg %d", i ,rst_n, run, load,insn, bad_pattern,i_d,i_e, index, data,out);
 //	$display("d %d c %d t %d m %d",delta,count,total,mem[i]);
 	end
-		assign out = out_reg[7:0];
-		assign out_top = out_reg[11:8];
+	assign out = out_reg[7:0];
+	assign out_top = out_reg[11:8];
 		
 endmodule
 

@@ -20,7 +20,7 @@ module DMADD(
 
  	reg [3:0] j; //j=0 ;
 	reg [3:0] i; // i = 4'b1111;
-	reg signed [3:0] i_d;//= -1;
+	reg signed [3:0] i_d= -1;
 	reg [3:0] i_e;// = 4'b0;   
 		
 	reg signed [5:0] mem[15:0];
@@ -38,7 +38,7 @@ module DMADD(
      		 
      		//Initialise
      		5'b1_0_0_00: begin i<= 4'b0; i_d<= 3'b1; i_e <= 4'b1111; end  	// Initialise MIN
-     		5'b1_0_0_01: begin i<= 4'b1111; i_d<= 4'b1001; i_e <= 4'b0; end 	// Initialise MAX
+     		5'b1_0_0_01: begin i<= 4'b1111;  i_e <= 4'b0; end 	// Initialise MAX
      		5'b1_0_1_00,
      		5'b1_0_1_01: mem[index]  <= 6'b1;					// Load Data MIN
      		5'b1_0_1_10: {mem[index], mem[index-1]} <= {mem[index] + {2'b0,data}, mem[index-1] - {2'b0,data}} ; //MADD
